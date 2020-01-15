@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: mariadb:10.4.11
+    environment:
+      MYSQL_ROOT_PASSWORD: dev123
+      MYSQL_DATABASE: comichero
+
+  app:
+    build: .
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - '80/tcp'
